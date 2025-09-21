@@ -1,0 +1,385 @@
+body {
+  margin: 0;
+  margin-left: 60px;
+  margin-right: 60px;
+  min-height: 100vh;
+  flex-direction: column;
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Roboto Condensed", sans-serif;
+  color: white;
+  display: flex;
+  justify-content: top;
+  align-items: center;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between; 
+  box-sizing: border-box;
+  align-items: center;
+  padding: 20px 30x;
+  position: relative;
+  top: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  text-align: center;
+  border-radius: 12px;
+  line-height: 1.6;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+  margin-right: 200px;
+  z-index: 998;
+}
+
+.hamburger {
+  width: 30px;
+  height: 24px;
+  position: relative;
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  z-index: 2000;
+}
+
+.hamburger span {
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  left: 0;
+  transition: 0.4s ease;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0;
+}
+
+.hamburger span:nth-child(2) {
+  top: 10px;
+}
+
+.hamburger span:nth-child(3) {
+  top: 20px;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 10px;
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 10px;
+}
+
+.title {
+  margin-top: 40px;
+}
+
+.title h1 {
+  font-size: 32px;
+  color: #fff;
+  margin: 0;
+  text-align: center;
+}
+
+.menu-grid {
+  display: flex;
+  gap: 64px;
+}
+
+.menu-grid a {
+  color: #fff;
+  padding: 5px 0;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s ease, color 0.3s ease;
+  position: relative;
+}
+
+.menu-grid a {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 0;
+  outline: none;
+}
+
+.menu-grid a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #00aaff;
+  transition: width 0.4s ease;
+}
+
+.menu-grid a:focus::after, .menu-grid a:active::after {
+  width: 100%;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  padding: 60px 30px;
+  gap: 24px;
+  transition: right 0.4s ease;
+  z-index: 999;
+}
+
+.sidebar.show {
+  right: 0;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.sidebar a:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #00aaff;
+  transition: width 0.4s ease;
+}
+
+.sidebar a:focus::after, .sidebar a:active::after {
+  width: 100%;
+}
+
+p {
+  font-size: 24px;
+  color: #fff;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.main-services, .works {
+  text-align: left;
+  width: 100%;
+  display: block;
+  margin-bottom: 40px;
+  margin-left: 0;
+}
+
+.text-services, .text-works {
+  flex-grow: 1;
+  margin-left: 20px;
+}
+
+.services-image {
+  float: right;
+  width: 450px;
+  margin: 0 0 20px 20px;
+  border-radius: 8px;
+}
+
+.works-image {
+  float: right;
+  width: 320px;
+  height: 240px;
+  margin: 0 0 20px 20px;
+  border-radius: 16px;
+}
+
+.image-with-services, .image-with-works {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.instagram-icon, .email-icon {
+  width: 100px;
+  height: 100px;
+  border: 2px solid white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.instagram-icon:hover, .email-icon:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.instagram-icon i, .email-icon i {
+  color: white;
+  font-size: 48px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: bottom;
+  background-color: rgba(0, 0, 0, 50%);
+  width: calc(100% + 120px);
+  color: #fff;
+  align-items: center;
+  padding: 20px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+footer .copyright {
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+footer ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.redes a {
+  font-size: 24px;
+  color: #fff;
+  padding: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.redes a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+  }
+  
+  body {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .hamburger {
+    display: block;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  .image-with-services, .image-with-works {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .services-image, .works-image {
+    float: none;
+    width: 100%;
+    margin: 20px 0 0 0;
+    order: 2;
+  }
+
+  .text-services, .text-works {
+    overflow: auto;
+    margin-left: 10px;
+    max-height: none;
+    order: 1;
+  }
+
+  .works p {
+    margin-left: 2px;
+  }
+
+  .menu-grid {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 30px;
+    background-color: #111;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(255,255,255,0.1);
+    gap: 10px;
+    z-index: 1002;
+  }
+
+  .menu-grid.show {
+    display: flex;
+  }
+
+  .menu-grid a {
+    margin-bottom: 10px;
+    margin-left: 0;
+  }
+
+  footer {
+    width: 100%;
+  }
+
+  footer .copyright {
+    font-size: 16px;
+  }
+
+  footer ul {
+    font-size: 12px;
+  }
+
+  redes {
+    font-size: 16px;
+  }
+}
